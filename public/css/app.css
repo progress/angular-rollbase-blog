@@ -28,3 +28,16 @@
   content: "";
   padding: 0;
 }
+* {
+ font-family: Helvetica;
+ color:#19324B;
+}
+li {
+  list-style-type: square;
+}
+textarea {
+   border-radius: 10px;
+}
+input {
+    border-radius: 3px;
+}

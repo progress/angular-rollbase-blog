@@ -23,13 +23,13 @@ var username = 'YOUR ROLLBASE USERNAME HERE';
 // a valid sessionId after authenticated ..
 var sessionId = '';
 
-login();
+setUp();
 
 // This logs back in periodically. The current interval is set at updating hourly
-var interval = setInterval(login, 3600000);
+var interval = setInterval(setUp, 3600000);
 
 // Function for logging in with credentials. It updates the sessionId token and also calls getInfo to update the postData object. 
-function login() {
+function setUp() {
     var loginOptions = {
         host: 'rollbase.com',
         port: 443,

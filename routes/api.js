@@ -1,7 +1,6 @@
 /*
  * Serve JSON to our AngularJS client with data from Rollbase
  */
-
 // objectIntegrationName was the object definition for my post object it was found at Application Setup > Objects > Post > View in the Integration name section. I filled postData.posts with such objects.
 var objectIntegrationName = "YOUR OBJECT INTEGRATION NAME";
 
@@ -20,16 +19,13 @@ var password = 'YOUR ROLLBASE PASSWORD HERE';
 
 var username = 'YOUR ROLLBASE USERNAME HERE';
 
-// a valid sessionId after authenticated ..
-var sessionId = '';
+setUp();
 
-login();
-
-// This logs back in periodically. The current interval is set at updating hourly
-var interval = setInterval(login, 3600000);
+// This logs back in periodically
+var interval = setInterval(setUp, 3600000);
 
 // Function for logging in with credentials. It updates the sessionId token and also calls getInfo to update the postData object. 
-function login() {
+function setUp() {
     var loginOptions = {
         host: 'rollbase.com',
         port: 443,
@@ -50,7 +46,7 @@ function login() {
         });
         res.on('end', function() {
             console.info('Login result:');
-            console.log(data);
+            //console.log(data);
             var obj = JSON.parse(data);
             if (obj.status == 'ok') {
                 console.log(obj.sessionId);
@@ -77,7 +73,7 @@ function getInfo() {
     };
     // do the request
     var getInfo = https.request(getOptions, function(res) {
-        console.log("statusCode: ", res.statusCode);
+        //console.log("statusCode: ", res.statusCode);
         var data = '';
         res.on('data', function(d) {
             data += d;
@@ -86,7 +82,7 @@ function getInfo() {
             // < 400 means request probably succeeded 
             if (res.statusCode < 400) {
                 var obj = JSON.parse(data);
-                console.log(obj);
+                //console.log(obj);
                 postData = {
                     "posts": []
                 };
@@ -97,7 +93,7 @@ function getInfo() {
                     post.text = obj[i].text;
                     post.id = obj[i].id;
                     postData.posts.push(post);
-                    console.log(postData);
+                    //console.log(postData);
                 }
             } else {
                 console.log('Getting info failed');
@@ -111,7 +107,49 @@ function getInfo() {
     });
 }
 
-// This returns all the posts currently stored in postData. It also calls getInfo to try to get updates from Rollbase on refresh. 
+// This is the function which is called when the external user is trying to log in and modify posts.
+exports.login = function(req, result) {
+    var loginOptions = {
+        host: 'rollbase.com',
+        port: 443,
+        // Note this is password not Password like in documentation
+        path: '/rest/api/login?&output=json&password=' + req.body.password + '&loginName=' + req.body.username
+    };
+
+    console.info('Options prepared:');
+    console.info(loginOptions);
+    console.info('Do the Login');
+    // do the request
+    var loginGet = https.request(loginOptions, function(res) {
+        console.log("statusCode: ", res.statusCode);
+        var data = '';
+
+        res.on('data', function(d) {
+            data += d;
+        });
+        res.on('end', function() {
+            console.info('Login result:');
+            console.log(data);
+            var obj = JSON.parse(data);
+            if (obj.status == 'ok') {
+                console.log(obj.sessionId);
+                req.body.sessionId = obj.sessionId;
+                // Since it is a valid sessionId, we can set our sessionId to it.
+                sessionId = obj.sessionId;
+                result.json(req.body);
+            } else {
+                console.log(obj.message);
+                result.end();
+            }
+        })
+    });
+    loginGet.end();
+    loginGet.on('error', function(e) {
+        console.error(e);
+    });
+};
+
+// This returns all the posts currently stored in postData. It also updates, by calling getInfo, whenever the page is refreshed.
 exports.posts = function(req, res) {
     getInfo();
     var posts = [];
@@ -144,6 +182,8 @@ exports.post = function(req, res) {
 exports.addPost = function(req, result) {
     var title = req.body.title;
     var text = req.body.text;
+    var authToken = req.body.sessionId;
+
     // Simple check for empty strings to prevent the app from crashing
     if (title.length < 1 || text.length < 1) {
         result.end();
@@ -156,7 +196,7 @@ exports.addPost = function(req, result) {
         // require('querystring').escape() allows strings with spaces and other characters not supported by urls to be included in api calls
         // objectIntegrationName was the object definition for my post object it was found at Application Setup > Objects > Post > View
         // I decided to store the title as the object's name
-        path: '/rest/api/createRecord?objName=' + objectIntegrationName + '&useIds=true&name=' + require('querystring').escape(title) + '&text=' + require('querystring').escape(text) + '&output=json&sessionId=' + sessionId
+        path: '/rest/api/createRecord?objName=' + objectIntegrationName + '&useIds=true&name=' + require('querystring').escape(title) + '&text=' + require('querystring').escape(text) + '&output=json&sessionId=' + authToken
     };
     console.info('Options prepared:');
     console.info(createOptions);
@@ -195,7 +235,7 @@ exports.addPost = function(req, result) {
 // This edits a post in both the postData temporary database and the rollbase database using a REST call
 exports.editPost = function(req, result) {
     var id = req.params.id;
-
+    var authToken = req.body.sessionId;
     if (id >= 0 && id < postData.posts.length) {
         postData.posts[id] = req.body;
         var title = req.body.title;
@@ -207,7 +247,7 @@ exports.editPost = function(req, result) {
             // require('querystring').escape() allows strings with spaces and other characters not supported by urls to be included in api calls
             // objectIntegrationName was the object definition for my post object it was found at Application Setup > Objects > Post > View
             // I decided to store the title as the object's name
-            path: '/rest/api/updateRecord?objName=' + objectIntegrationName + '&useIds=true&name=' + require('querystring').escape(title) + '&text=' + require('querystring').escape(text) + '&output=json&sessionId=' + sessionId + '&id=' + objectId
+            path: '/rest/api/updateRecord?objName=' + objectIntegrationName + '&useIds=true&name=' + require('querystring').escape(title) + '&text=' + require('querystring').escape(text) + '&output=json&sessionId=' + authToken + '&id=' + objectId
         };
         console.info('Options prepared:');
         console.info(updateOptions);
@@ -247,14 +287,14 @@ exports.editPost = function(req, result) {
 // This deletes a post in both the addPost temporary database and the rollbase database using a REST call
 exports.deletePost = function(req, result) {
     var id = req.params.id;
-
+    var authToken = req.body.sessionId;
     if (id >= 0 && id < postData.posts.length) {
         var objectId = postData.posts[id].id;
         var deleteOptions = {
             host: 'rollbase.com',
             port: 443,
             // objectIntegrationName was the object definition for my post object it was found at Application Setup > Objects > Post > View
-            path: '/rest/api/deleteRecord?objName=' + objectIntegrationName + '&output=json&sessionId=' + sessionId + '&id=' + objectId
+            path: '/rest/api/deleteRecord?objName=' + objectIntegrationName + '&output=json&sessionId=' + authToken + '&id=' + objectId
         };
         postData.posts.splice(id, 1);
         console.info('Options prepared:');

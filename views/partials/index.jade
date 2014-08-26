@@ -1,8 +1,8 @@
 p There are {{posts.length}} posts
 div(ng-repeat='post in posts')
   h3 {{post.title}}
-  div&emsp;{{post.text}}
-  &emsp;
+  div &emsp;{{post.text}}
+  | &emsp;
   a(href='/readPost/{{post.id}}') More
   |  - 
   a(href='/editPost/{{post.id}}') Edit

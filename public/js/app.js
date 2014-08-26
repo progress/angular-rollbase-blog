@@ -12,6 +12,10 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
         templateUrl: 'partials/addPost',
         controller: AddPostCtrl
       }).
+      when('/login', {
+        templateUrl: 'partials/login',
+        controller: LoginCtrl
+      }).
       when('/readPost/:id', {
         templateUrl: 'partials/readPost',
         controller: ReadPostCtrl

@@ -23,10 +23,9 @@ var username = 'YOUR ROLLBASE USERNAME HERE';
 // a valid sessionId after authenticated ..
 var sessionId = '';
 
-
 login();
 
-// This logs back in periodically
+// This logs back in periodically. The current interval is set at updating hourly
 var interval = setInterval(login, 3600000);
 
 // Function for logging in with credentials. It updates the sessionId token and also calls getInfo to update the postData object. 
@@ -93,6 +92,7 @@ function getInfo() {
                 };
                 for (var i = 0; i < obj.length; i++) {
                     var post = {};
+                    // I decided that an object's title would be its name on Rollbase
                     post.title = obj[i].name;
                     post.text = obj[i].text;
                     post.id = obj[i].id;
@@ -111,8 +111,9 @@ function getInfo() {
     });
 }
 
-// This returns all the posts currently stored in postData
+// This returns all the posts currently stored in postData. It also calls getInfo to try to get updates from Rollbase on refresh. 
 exports.posts = function(req, res) {
+    getInfo();
     var posts = [];
     console.log(postData);
     postData.posts.forEach(function(post, i) {
@@ -154,7 +155,8 @@ exports.addPost = function(req, result) {
         // Note this is objName not objDefName like in documentation
         // require('querystring').escape() allows strings with spaces and other characters not supported by urls to be included in api calls
         // objectIntegrationName was the object definition for my post object it was found at Application Setup > Objects > Post > View
-        path: '/rest/api/createRecord?objName=' + objectIntegrationName + '&useIds=true&title=' + require('querystring').escape(title) + '&text=' + require('querystring').escape(text) + '&output=json&sessionId=' + sessionId
+        // I decided to store the title as the object's name
+        path: '/rest/api/createRecord?objName=' + objectIntegrationName + '&useIds=true&name=' + require('querystring').escape(title) + '&text=' + require('querystring').escape(text) + '&output=json&sessionId=' + sessionId
     };
     console.info('Options prepared:');
     console.info(createOptions);
@@ -204,7 +206,8 @@ exports.editPost = function(req, result) {
             port: 443,
             // require('querystring').escape() allows strings with spaces and other characters not supported by urls to be included in api calls
             // objectIntegrationName was the object definition for my post object it was found at Application Setup > Objects > Post > View
-            path: '/rest/api/updateRecord?objName=' + objectIntegrationName + '&useIds=true&title=' + require('querystring').escape(title) + '&text=' + require('querystring').escape(text) + '&output=json&sessionId=' + sessionId + '&id=' + objectId
+            // I decided to store the title as the object's name
+            path: '/rest/api/updateRecord?objName=' + objectIntegrationName + '&useIds=true&name=' + require('querystring').escape(title) + '&text=' + require('querystring').escape(text) + '&output=json&sessionId=' + sessionId + '&id=' + objectId
         };
         console.info('Options prepared:');
         console.info(updateOptions);

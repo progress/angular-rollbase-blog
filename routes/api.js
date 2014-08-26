@@ -1,21 +1,33 @@
 /*
  * Serve JSON to our AngularJS client with data from Rollbase
  */
-// post2 was the object definition for my post object it was found at Application Setup > Objects > Post > View in the Integration name section. I filled postData.posts with such objects.
+
+// objectIntegrationName was the object definition for my post object it was found at Application Setup > Objects > Post > View in the Integration name section. I filled postData.posts with such objects.
+var objectIntegrationName = "YOUR OBJECT INTEGRATION NAME";
+
+// My viewId for the posts view was found at Application Setup > Objects > Post > All Posts
+var viewId = 'YOUR VIEWID FOR POSTOBJECT HERE';
+
 // postData is a temporary store to access all the posts easily without continually calling the database.
 var postData = {
     "posts": []
 };
+
+// requiring Express - HTTPSServer
 var https = require('https');
+
 var password = 'YOUR ROLLBASE PASSWORD HERE';
+
 var username = 'YOUR ROLLBASE USERNAME HERE';
-// My viewId for the posts view was found at Application Setup > Objects > Post > All Posts
-var viewId = 'YOUR VIEWID FOR POSTOBJECT HERE';
+
+// a valid sessionId after authenticated ..
 var sessionId = '';
+
+
 login();
+
 // This logs back in periodically
 var interval = setInterval(login, 3600000);
-
 
 // Function for logging in with credentials. It updates the sessionId token and also calls getInfo to update the postData object. 
 function login() {
@@ -141,8 +153,8 @@ exports.addPost = function(req, result) {
         port: 443,
         // Note this is objName not objDefName like in documentation
         // require('querystring').escape() allows strings with spaces and other characters not supported by urls to be included in api calls
-        // post2 was the object definition for my post object it was found at Application Setup > Objects > Post > View
-        path: '/rest/api/createRecord?objName=post2&useIds=true&title=' + require('querystring').escape(title) + '&text=' + require('querystring').escape(text) + '&output=json&sessionId=' + sessionId
+        // objectIntegrationName was the object definition for my post object it was found at Application Setup > Objects > Post > View
+        path: '/rest/api/createRecord?objName=' + objectIntegrationName + '&useIds=true&title=' + require('querystring').escape(title) + '&text=' + require('querystring').escape(text) + '&output=json&sessionId=' + sessionId
     };
     console.info('Options prepared:');
     console.info(createOptions);
@@ -191,8 +203,8 @@ exports.editPost = function(req, result) {
             host: 'rollbase.com',
             port: 443,
             // require('querystring').escape() allows strings with spaces and other characters not supported by urls to be included in api calls
-            // post2 was the object definition for my post object it was found at Application Setup > Objects > Post > View
-            path: '/rest/api/updateRecord?objName=post2&useIds=true&title=' + require('querystring').escape(title) + '&text=' + require('querystring').escape(text) + '&output=json&sessionId=' + sessionId + '&id=' + objectId
+            // objectIntegrationName was the object definition for my post object it was found at Application Setup > Objects > Post > View
+            path: '/rest/api/updateRecord?objName=' + objectIntegrationName + '&useIds=true&title=' + require('querystring').escape(title) + '&text=' + require('querystring').escape(text) + '&output=json&sessionId=' + sessionId + '&id=' + objectId
         };
         console.info('Options prepared:');
         console.info(updateOptions);
@@ -238,8 +250,8 @@ exports.deletePost = function(req, result) {
         var deleteOptions = {
             host: 'rollbase.com',
             port: 443,
-            // post2 was the object definition for my post object it was found at Application Setup > Objects > Post > View
-            path: '/rest/api/deleteRecord?objName=post2&output=json&sessionId=' + sessionId + '&id=' + objectId
+            // objectIntegrationName was the object definition for my post object it was found at Application Setup > Objects > Post > View
+            path: '/rest/api/deleteRecord?objName=' + objectIntegrationName + '&output=json&sessionId=' + sessionId + '&id=' + objectId
         };
         postData.posts.splice(id, 1);
         console.info('Options prepared:');

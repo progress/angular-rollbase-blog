@@ -20,6 +20,9 @@ var password = 'YOUR ROLLBASE PASSWORD HERE';
 
 var username = 'YOUR ROLLBASE USERNAME HERE';
 
+// This is the sessionId used for fetching data.
+var sessionId = '';
+
 setUp();
 
 // This logs back in periodically

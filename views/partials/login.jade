@@ -1,4 +1,8 @@
-h2 Please login to update the blog
+.switch(ng-switch='displayType')
+        .switch(ng-switch-when='firstLogin')
+            h3 Please login to update the blog
+        .switch(ng-switch-when='secondLogin')
+            h3 Login failed. Try again.
 p Username: 
 input(ng-model='form.username')
 p Password: 

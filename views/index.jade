@@ -1,13 +1,18 @@
 extends layout
 
 block body
-  div
-    h2 My Blog
+  div(ng-controller='HomeCtrl')
+    h2 
+      a(href='/') My Blog
     ul
       li
         a(href='/') Home
       li
-        a(href='/addPost') Add a new post
+        .switch(ng-switch='displayType')
+          .switch(ng-switch-when='notlogged')
+            a(href='/login') Login
+          .switch(ng-switch-when='logged')
+            a(href='/addPost') Add a new post
 
     div(ng-view)
 

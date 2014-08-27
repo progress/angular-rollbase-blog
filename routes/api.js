@@ -159,12 +159,21 @@ exports.posts = function(req, res) {
     var posts = [];
     console.log(postData);
     postData.posts.forEach(function(post, i) {
+        // Only show ellipsis if the text length is less than 50.
+        if (post.text.length > 50) {
         posts.push({
             id: i,
             title: post.title,
             authorName: post.authorName,
             text: post.text.substr(0, 50) + '...'
+        });} else {
+            posts.push({
+            id: i,
+            title: post.title,
+            authorName: post.authorName,
+            text: post.text
         });
+        }
     });
     res.json({
         posts: posts

@@ -1,11 +1,13 @@
 p There are {{posts.length}} posts
 div(ng-repeat='post in posts')
-  h3 {{post.title}}
+  h3 {{post.title}} 
+  h4 &emsp;{{post.authorName}}
   div &emsp;{{post.text}}
-  | &emsp;
-  a(href='/readPost/{{post.id}}') More
-  |  - 
-  a(href='/editPost/{{post.id}}') Edit
-  |  - 
-  a(href='/deletePost/{{post.id}}') Delete
+  .links
+    | &emsp;
+    a(href='/readPost/{{post.id}}') More
+    |  - 
+    a(href='/editPost/{{post.id}}') Edit
+    |  - 
+    a(href='/deletePost/{{post.id}}') Delete
   <br><br>

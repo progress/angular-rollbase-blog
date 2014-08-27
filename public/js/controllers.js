@@ -2,6 +2,7 @@
 
 // This variable is used to store the token that is passed to the server. Only if the token is valid will changes be made.
 var sessionId = '';
+
 /* Controllers */
 function IndexCtrl($scope, $http) {
     $http.get('/api/posts').

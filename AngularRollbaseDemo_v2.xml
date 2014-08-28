@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application id="107566648" origId="107566648" orderNo="3" isSystem="false" version="2" packedId="0" language="en" >
+<DisplayName>AngularRollbaseDemo</DisplayName>
+<Props>
+<showMenus>false</showMenus>
+<useLegacyHeaderFooter>false</useLegacyHeaderFooter>
+<isHidden>false</isHidden>
+<appType>WebApp</appType>
+<helpField>false</helpField>
+<isDeployed>true</isDeployed>
+<isManaged>0</isManaged>
+<pubManaged>0</pubManaged>
+</Props>
+<Description>This is a demo showing how Rollbase can be used with AngularJS to save changes in data. </Description>
+<DependentDefs>
+<DataObjectDef id="107445173" origId="9058" objDefName="USER" >
+<SingularName>User</SingularName>
+<PluralName>Users</PluralName>
+<Description>Users are people who have access to your Progress Rollbase account. Each user has an assigned Role which generally determines which applications and features they have access to.</Description>
+<DataFieldDefs>
+<DataFieldDef id="107445221" origId="12570596" fieldName="pwdUpdated" >
+<DisplayLabel>Password Updated</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445220" origId="2110138" fieldName="PUSER" >
+<DisplayLabel>Reports To</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445222" origId="12570597" fieldName="pwdUpdated_2" >
+<DisplayLabel>Password Expire At</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445217" origId="2354871" fieldName="R2354869" >
+<DisplayLabel>Groups</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445216" origId="9101" fieldName="fax" >
+<DisplayLabel>Fax</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445219" origId="2110139" fieldName="CUSER" >
+<DisplayLabel>Direct Reports</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445218" origId="3245509" fieldName="doNotAnimate" >
+<DisplayLabel>Do Not Animate Collapse</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445206" origId="3723843" fieldName="googCalendar" >
+<DisplayLabel>Synch Calendar</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445207" origId="30195" fieldName="dateFormat" >
+<DisplayLabel>Date Format</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445204" origId="9063" fieldName="createdBy" >
+<DisplayLabel>Created By</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445205" origId="9103" fieldName="email" >
+<DisplayLabel>Email Address</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445202" origId="9073" fieldName="role" >
+<DisplayLabel>User Role</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445203" origId="31832" fieldName="customer" >
+<DisplayLabel>Customer</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445200" origId="9075" fieldName="pwdStatus" >
+<DisplayLabel>Password Status</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445214" origId="9083" fieldName="emailEncoding" >
+<DisplayLabel>Email Encoding</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445215" origId="9091" fieldName="firstName" >
+<DisplayLabel>First Name</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445212" origId="9081" fieldName="lastLogin" >
+<DisplayLabel>Last Login Time</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445213" origId="9085" fieldName="lastApplication" >
+<DisplayLabel>Last Application ID</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445210" origId="9077" fieldName="language" >
+<DisplayLabel>Language</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445211" origId="9059" fieldName="id" >
+<DisplayLabel>ID</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445208" origId="9065" fieldName="createdAt" >
+<DisplayLabel>Created At</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445209" origId="3283407" fieldName="googUname" >
+<DisplayLabel>Google Account Name</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445191" origId="30106" fieldName="mailFooter" >
+<DisplayLabel>Email Footer</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445190" origId="9071" fieldName="loginName" >
+<DisplayLabel>Login Name</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445189" origId="9095" fieldName="lastName" >
+<DisplayLabel>Last Name</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445188" origId="9089" fieldName="newsletter" >
+<DisplayLabel>Rollbase Email Updates</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445187" origId="9061" fieldName="name" >
+<DisplayLabel>User Name</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445186" origId="9099" fieldName="mobilePhone" >
+<DisplayLabel>Mobile Phone</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445185" origId="9093" fieldName="middleName" >
+<DisplayLabel>Middle Name</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445184" origId="9069" fieldName="updatedAt" >
+<DisplayLabel>Updated At</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445199" origId="9097" fieldName="phone" >
+<DisplayLabel>Phone</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445198" origId="9079" fieldName="timeZone" >
+<DisplayLabel>Time Zone</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445197" origId="19339" fieldName="tempPassword" >
+<DisplayLabel>Temporary Password</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445196" origId="3283409" fieldName="googEmail" >
+<DisplayLabel>Use Gmail</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445194" origId="3283408" fieldName="googPword" >
+<DisplayLabel>Google Password</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445193" origId="9087" fieldName="rowsPerPage" >
+<DisplayLabel>Rows Per Page</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445192" origId="30104" fieldName="mailHeader" >
+<DisplayLabel>Email Header</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445174" origId="54250467" fieldName="isApiOnly" >
+<DisplayLabel>API Only Access</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445175" origId="2352068" fieldName="isApprover" >
+<DisplayLabel>Approver</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445176" origId="12149663" fieldName="displayLDF" >
+<DisplayLabel>LDF Filter</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445177" origId="2370067" fieldName="job_title" >
+<DisplayLabel>Job Title</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445178" origId="2370048" fieldName="departmentId" >
+<DisplayLabel>Department</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445179" origId="2370049" fieldName="functionId" >
+<DisplayLabel>Function</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445180" origId="2647794" fieldName="isActive" >
+<DisplayLabel>Is Active</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445181" origId="78166328" fieldName="USER_comm" >
+<DisplayLabel>Communication Log</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445182" origId="2370047" fieldName="locationId" >
+<DisplayLabel>Location</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107445183" origId="9067" fieldName="updatedBy" >
+<DisplayLabel>Updated By</DisplayLabel>
+</DataFieldDef>
+</DataFieldDefs>
+<ListViews>
+<ListView id="107445266" origId="9242" orderNo="0">
+<ViewName>All Users</ViewName>
+</ListView>
+</ListViews>
+<RelationshipDefs>
+<RelationshipDef id="107445223" origId="190884" relName="USER_comm" objDef1="USER" objDef2="COMMLOG" singularName1="User" pluralName1="Users" singularName2="Communication Log" pluralName2="Communication Logs" isMultiple1="false" isMultiple2="true" orphanControl1="false" orphanControl2="true" cloneRelated1="false" cloneRelated2="false" isSystem="false" isPkFk="false">
+</RelationshipDef><RelationshipDef id="107445235" origId="2110137" relName="ORG_CHART" objDef1="USER" objDef2="USER" singularName1="Reports To" pluralName1="Reports To" singularName2="Direct Report" pluralName2="Direct Reports" isMultiple1="false" isMultiple2="true" orphanControl1="false" orphanControl2="false" cloneRelated1="false" cloneRelated2="false" isSystem="false" isPkFk="false">
+</RelationshipDef><RelationshipDef id="107445224" origId="2354869" relName="USER_GROUP" objDef1="$GROUP" objDef2="USER" singularName1="Group" pluralName1="Groups" singularName2="User" pluralName2="Users" isMultiple1="true" isMultiple2="true" orphanControl1="false" orphanControl2="false" cloneRelated1="false" cloneRelated2="false" isSystem="false" isPkFk="false">
+</RelationshipDef></RelationshipDefs>
+</DataObjectDef>
+<DataObjectDef id="107640957" origId="107640957" objDefName="post2" >
+<SingularName>Post</SingularName>
+<PluralName>Posts</PluralName>
+<Description>This represents a blog post</Description>
+<DataFieldDefs>
+<DataFieldDef id="107641346" origId="107641346" fieldName="text" >
+<DisplayLabel>text</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107640959" origId="107640959" fieldName="comment" >
+<DisplayLabel>Comments</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107640958" origId="107640958" fieldName="name" >
+<DisplayLabel>Post</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107640961" origId="107640961" fieldName="createdAt" >
+<DisplayLabel>Created At</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107640960" origId="107640960" fieldName="createdBy" >
+<DisplayLabel>Created By</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107640963" origId="107640963" fieldName="updatedAt" >
+<DisplayLabel>Updated At</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107640962" origId="107640962" fieldName="updatedBy" >
+<DisplayLabel>Updated By</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107640965" origId="107640965" fieldName="id" >
+<DisplayLabel>ID</DisplayLabel>
+</DataFieldDef>
+<DataFieldDef id="107640964" origId="107640964" fieldName="tag" >
+<DisplayLabel>Tags</DisplayLabel>
+</DataFieldDef>
+</DataFieldDefs>
+<ListViews>
+<ListView id="107641013" origId="107641013" orderNo="0">
+<ViewName>All Posts</ViewName>
+</ListView>
+</ListViews>
+</DataObjectDef>
+</DependentDefs>
+<DataObjectDefs>
+</DataObjectDefs>
+<Menus>
+<Menu id="107641341" origId="107641341" objDefId="107640957" orderNo="1" parentId="-1" pageDefId="107640966" >
+<DisplayName>Posts</DisplayName>
+<Description>This represents a blog post</Description>
+<Menus><Menu id="107641342" origId="107641342" objDefId="107640957" orderNo="1" parentId="107641341" pageDefId="107640968" >
+<DisplayName>New Post</DisplayName>
+</Menu>
+<Menu id="107641343" origId="107641343" objDefId="107640957" orderNo="2" parentId="107641341" pageDefId="107640978" >
+<DisplayName>Search</DisplayName>
+</Menu>
+<Menu id="107641344" origId="107641344" objDefId="107640957" orderNo="3" parentId="107641341" pageDefId="107640981" >
+<DisplayName>Import</DisplayName>
+</Menu>
+<Menu id="107641345" origId="107641345" objDefId="107640957" orderNo="4" parentId="107641341" pageDefId="107640982" >
+<DisplayName>Templates</DisplayName>
+</Menu>
+</Menus></Menu>
+</Menus>
+<WebPageDefs>
+<WebPageDef id="107640968" origId="107640968" isPortal="false" objDefId="107640957" pageType="3" >
+<PageDefName>New Post</PageDefName>
+<JspName>../m/main.jsp</JspName>
+<WebPages>
+<WebPage id="107640969" origId="107640969" pageDefId="107640968" isBaseVersion="true" isLoginOnly="false" >
+<PageName>New Post</PageName>
+<PageSections>
+<PageSection id="107640988" origId="107640988" pageId="107640969" orderNo="0" borderStyle="0" columns="1" viewTabNo="-1" pageColNo="0" isCollapsable="false" isDefault="false" hideMobile="true" doNotSynch="true" >
+<SectionTitle>Page Begin</SectionTitle>
+<PageCells>
+<PageCell id="107640989" origId="107640989" sectionId="107640988" orderNo="0" alignment="0" fieldId="-1" cellClassName="com.rb.core.ui.web.cell.ObjectFormBegin" >
+<TextB64>UGFnZSBCZWdpbg==</TextB64>
+</PageCell>
+</PageCells>
+</PageSection>
+<PageSection id="107640990" origId="107640990" pageId="107640969" orderNo="1" borderStyle="1" columns="1" viewTabNo="0" pageColNo="0" isCollapsable="false" isDefault="true" hideMobile="false" doNotSynch="false" >
+<SectionTitle>Post Information</SectionTitle>
+<PageCells>
+<PageCell id="107640991" origId="107640991" sectionId="107640990" orderNo="0" alignment="0" fieldId="107640958" cellClassName="com.rb.core.ui.web.cell.FieldWrapper" >
+</PageCell>
+<PageCell id="107641347" origId="107641347" sectionId="107640990" orderNo="1" alignment="0" fieldId="107641346" cellClassName="com.rb.core.ui.web.cell.FieldWrapper" >
+</PageCell>
+</PageCells>
+</PageSection>
+<PageSection id="107640992" origId="107640992" pageId="107640969" orderNo="2" borderStyle="0" columns="1" viewTabNo="-1" pageColNo="0" isCollapsable="false" isDefault="false" hideMobile="true" doNotSynch="true" >
+<SectionTitle>Page End</SectionTitle>
+<PageCells>
+<PageCell id="107640993" origId="107640993" sectionId="107640992" orderNo="0" alignment="0" fieldId="-1" cellClassName="com.rb.core.ui.web.cell.ObjectFormEnd" >
+<TextB64>UGFnZSBFbmQ=</TextB64>
+</PageCell>
+</PageCells>
+</PageSection>
+</PageSections>
+</WebPage>
+</WebPages>
+</WebPageDef>
+<WebPageDef id="107640978" origId="107640978" isPortal="false" objDefId="107640957" pageType="4" >
+<PageDefName>Search</PageDefName>
+<JspName>../m/search.jsp</JspName>
+<WebPages>
+</WebPages>
+</WebPageDef>
+<WebPageDef id="107640981" origId="107640981" isPortal="false" objDefId="107640957" pageType="10" >
+<PageDefName>Import</PageDefName>
+<JspName>../m/import.jsp</JspName>
+<WebPages>
+</WebPages>
+</WebPageDef>
+<WebPageDef id="107640982" origId="107640982" isPortal="false" objDefId="107640957" pageType="12" >
+<PageDefName>Templates</PageDefName>
+<JspName>../m/templates.jsp</JspName>
+<WebPages>
+</WebPages>
+</WebPageDef>
+<WebPageDef id="107640966" origId="107640966" isPortal="false" objDefId="107640957" pageType="22" >
+<PageDefName>Posts List</PageDefName>
+<JspName>../m/main.jsp</JspName>
+<WebPages>
+<WebPage id="107640967" origId="107640967" pageDefId="107640966" isBaseVersion="true" isLoginOnly="false" >
+<PageName>Posts List</PageName>
+<PageSections>
+<PageSection id="107641014" origId="107641014" pageId="107640967" orderNo="0" borderStyle="2" columns="1" viewTabNo="0" pageColNo="0" isCollapsable="false" isDefault="false" hideMobile="false" doNotSynch="false" >
+<SectionTitle>All Posts</SectionTitle>
+<PageCells>
+<PageCell id="107641015" origId="107641015" sectionId="107641014" orderNo="0" alignment="0" fieldId="-1" cellClassName="com.rb.core.ui.web.cell.PageableList" >
+<TextB64>UXVlc3Rpb25z</TextB64>
+<Props>
+<objDefId2>107640957</objDefId2>
+</Props>
+</PageCell>
+</PageCells>
+</PageSection>
+</PageSections>
+</WebPage>
+</WebPages>
+</WebPageDef>
+</WebPageDefs>
+<Portals>
+</Portals>
+<Permissions><Permission resId="107640957" prId="98" actionsSet="15"/>
+<Permission resId="107641342" prId="98" actionsSet="1"/>
+<Permission resId="107641344" prId="98" actionsSet="1"/>
+<Permission resId="107640957" prId="91" actionsSet="13"/>
+<Permission resId="107640957" prId="93" actionsSet="4"/>
+</Permissions><RolePages>
+</RolePages>
+<MobileApps>
+</MobileApps>
+</Application>

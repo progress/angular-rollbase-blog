@@ -34,7 +34,8 @@ Angular example blog app based on https://github.com/btford/angular-express-blog
         deletePost.jade         --> view for deleting post
         editPost.jade           --> view for editing post 
         index.jade              --> view for index page with all posts 
-        readPost.jade           --> view for reading post      
+        login.jade              --> view for logging in
+        readPost.jade           --> view for reading post        
 
 ## Contact
 

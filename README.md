@@ -1,6 +1,6 @@
 # Angular Rollbase Blog
 
-Angular example blog app based on https://github.com/btford/angular-express-blog, where the Node server references the Rollbase REST Api. The blog can be viewed on http://angularrollbaseblog2-21893.onmodulus.net/.A post on how to use this can be found on http://mendoncakeegan.wordpress.com/2014/08/28/angular-rollbase-blog-v2/.
+Angular example blog app based on https://github.com/btford/angular-express-blog, demonstrating the use of https://github.com/progress/angular-express-rollbase-seed/ where the Node server references the Rollbase REST Api. The blog can be viewed on http://angularrollbaseblog2-21893.onmodulus.net/.A post on how to use this can be found on http://mendoncakeegan.wordpress.com/2014/08/28/angular-rollbase-blog-v2/.
 
 ### Running the app
 
@@ -39,10 +39,10 @@ Angular example blog app based on https://github.com/btford/angular-express-blog
 
 ## Contact
 
-For a blog post on this project please check out http://mendoncakeegan.wordpress.com/2014/08/28/angular-rollbase-blog-v2/
-For more on Rollbase please check out http://www.progress.com/products/rollbase.
-For more on AngularJS please check out http://angularjs.org/.
-For more on NodeJS please check out http://nodejs.org/.
+For a blog post on this project please check out http://mendoncakeegan.wordpress.com/2014/08/28/angular-rollbase-blog-v2/ <br/>
+For more on Rollbase please check out http://www.progress.com/products/rollbase. <br/>
+For more on AngularJS please check out http://angularjs.org/. <br/>
+For more on NodeJS please check out http://nodejs.org/. <br/>
 
 ## License
 

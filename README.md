@@ -1,6 +1,6 @@
 # Angular Rollbase Blog
 
-Angular example blog app based on https://github.com/btford/angular-express-blog, demonstrating the use of https://github.com/progress/angular-express-rollbase-seed/ where the Node server references the Rollbase REST Api. The blog can be viewed on http://angularrollbaseblog2-21893.onmodulus.net/.A post on how to use this can be found on http://mendoncakeegan.wordpress.com/2014/08/28/angular-rollbase-blog-v2/.
+Angular example blog app based on [btford/angular-express-blog](https://github.com/btford/angular-express-blog), demonstrating the use of [angular-express-rollbase-seed](https://github.com/progress/angular-express-rollbase-seed/) where the Node server references the Rollbase REST Api. The blog can be viewed on http://angularrollbaseblog2-21893.onmodulus.net/.A post on how to use this can be found on http://mendoncakeegan.wordpress.com/2014/08/28/angular-rollbase-blog-v2/.
 
 ### Running the app
 

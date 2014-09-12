@@ -38,10 +38,10 @@ Angular example blog app based on https://github.com/btford/angular-express-blog
 
 ## Contact
 
-For a blog post on this project please check out http://mendoncakeegan.wordpress.com/2014/08/22/angular-rollbase-blog/
-For more on Rollbase please check out http://www.progress.com/products/rollbase.
-For more on AngularJS please check out http://angularjs.org/.
-For more on NodeJS please check out http://nodejs.org/.
+For a blog post on this project please check out http://mendoncakeegan.wordpress.com/2014/08/22/angular-rollbase-blog/ <br/>
+For more on Rollbase please check out http://www.progress.com/products/rollbase. <br/>
+For more on AngularJS please check out http://angularjs.org/. <br/>
+For more on NodeJS please check out http://nodejs.org/. <br/>
 
 ## License
 

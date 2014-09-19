@@ -1,36 +1,33 @@
-
 /**
  * Module dependencies.
  */
-
 var express = require('express'),
-  routes = require('./routes'),
-  api = require('./routes/api');
+    routes = require('./routes'),
+    http = require('http'),
+    bodyParser = require('body-parser'),
+    api = require('./routes/api'),
+    errorhandler = require('errorhandler');
 
-var app = module.exports = express.createServer();
+var app = module.exports = express();
+var jsonParser = bodyParser.json();
 
 // Configuration
 
-app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.set('view options', {
+app.set('port', process.env.PORT || 3000);
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.set('view options', {
     layout: false
-  });
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(express.static(__dirname + '/public'));
-  app.use(app.router);
 });
+app.use(express.static(__dirname + '/public'));
 
+var env = process.env.NODE_ENV || 'development';
 
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-});
+// development only
+if (env === 'development') {
+    app.use(errorhandler());
+}
 
-app.configure('production', function(){
-  app.use(express.errorHandler());
-});
 
 // Routes
 
@@ -41,16 +38,16 @@ app.get('/partials/:name', routes.partials);
 
 app.get('/api/posts', api.posts);
 
-app.get('/api/post/:id', api.post);
-app.post('/api/post', api.addPost);
-app.put('/api/post/:id', api.editPost);
-app.delete('/api/post/:id', api.deletePost);
+app.get('/api/post/:id', jsonParser, api.post);
+app.post('/api/post', jsonParser, api.addPost);
+app.put('/api/post/:id', jsonParser, api.editPost);
+app.delete('/api/post/:id', jsonParser, api.deletePost);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
 
 // Start server
 //Modulus uses process.env.PORT while locally it defaults to 3000
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+http.createServer(app).listen(app.get('port'), function() {
+    console.log('Express server listening on port ' + app.get('port'));
 });

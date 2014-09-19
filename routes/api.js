@@ -19,7 +19,7 @@ var https = require('https');
 var password = 'YOUR ROLLBASE PASSWORD HERE';
 
 var username = 'YOUR ROLLBASE USERNAME HERE';
-
+z
 // a valid sessionId after authenticated ..
 var sessionId = '';
 
@@ -176,7 +176,7 @@ exports.addPost = function(req, result) {
                 console.log(data);
                 var obj = JSON.parse(data);
                 req.body.id = obj.id;
-                postData.posts.push(req.body);
+                postData.posts.unshift(req.body);
                 result.json(req.body);
             } else {
                 console.log('Creation failed');

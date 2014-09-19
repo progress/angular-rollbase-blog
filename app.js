@@ -1,31 +1,29 @@
-
 /**
  * Module dependencies.
  */
-
 var express = require('express'),
-  routes = require('./routes'),
+    routes = require('./routes'),
     http = require('http'),
-bodyParser = require('body-parser'),
-  api = require('./routes/api'),
-  errorhandler = require('errorhandler');
+    bodyParser = require('body-parser'),
+    api = require('./routes/api'),
+    errorhandler = require('errorhandler');
 
 var app = module.exports = express();
 var jsonParser = bodyParser.json();
 // Configuration
 app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.set('view options', {
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.set('view options', {
     layout: false
-  });
-  app.use(express.static(__dirname + '/public'));
+});
+app.use(express.static(__dirname + '/public'));
 
 var env = process.env.NODE_ENV || 'development';
 
 // development only
 if (env === 'development') {
-  app.use(errorhandler());
+    app.use(errorhandler());
 }
 
 
@@ -48,6 +46,6 @@ app.get('*', routes.index);
 
 // Start server
 //Modulus uses process.env.PORT while locally it defaults to 3000
-http.createServer(app).listen(app.get('port'), function () {
-  console.log('Express server listening on port ' + app.get('port'));
+http.createServer(app).listen(app.get('port'), function() {
+    console.log('Express server listening on port ' + app.get('port'));
 });

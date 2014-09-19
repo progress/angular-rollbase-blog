@@ -234,7 +234,7 @@ exports.addPost = function(req, result) {
                 console.log(data);
                 var obj = JSON.parse(data);
                 req.body.id = obj.id;
-                postData.posts.push(req.body);
+                postData.posts.unshift(req.body);
                 result.json(req.body);
             } else {
                 console.log('Creation failed');

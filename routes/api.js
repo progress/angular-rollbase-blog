@@ -19,7 +19,7 @@ var https = require('https');
 var password = 'YOUR ROLLBASE PASSWORD HERE';
 
 var username = 'YOUR ROLLBASE USERNAME HERE';
-z
+
 // a valid sessionId after authenticated ..
 var sessionId = '';
 
